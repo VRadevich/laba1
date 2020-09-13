@@ -1,5 +1,5 @@
 #pragma once
-class Sorting_algorithms
+class Sorting_algorithms // WARNING!! God Object!!
 {
 
 public:
@@ -14,10 +14,9 @@ public:
 	~Sorting_algorithms();
 
 private:
-
-	// Счетчик количества действий(свапов) для сортировки
-	int Enumerator_of_Swaps = 0; 
-
+	
+	int Num_C = 0;  // Количество сравнений
+	int Num_M = 0;	// Количество пересылок
 	// Указатель на массив, который мы будем заполнять и сортировать.
 	int* Array_to_Sort;
 
@@ -53,6 +52,12 @@ private:
 
 	// Функция пирамидальной сортировки
 	void HeapSort();
+
+	// Подсчет контрольной суммы массива
+	int Control_Sum();
+
+	// Подсчет количества серий в массиве
+	int Series();
 
 	// Принимает функцию сортировки как аргумент и выводит время её выполнения
 	// Можно модернизировать в int Benchmark() при желании/необходимости
