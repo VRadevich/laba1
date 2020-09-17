@@ -8,9 +8,7 @@ class Sorting_algorithms // WARNING!! God Object!!
 public:
 
 	// Конструткор класса
-	Sorting_algorithms() {
-		Dialog_Loop();
-	}
+	Sorting_algorithms();
 
 	// Деструктор класса для очистки массива
 	~Sorting_algorithms();
@@ -69,7 +67,7 @@ private:
 	// Можно модернизировать в int Benchmark() при желании/необходимости
 	void Benchmark(void (Sorting_algorithms::*)());
 
-	// Вывод массива на экран в виде матрицы 10хN(
+	// Вывод массива на экран в виде матрицы 15хN(
 	void Print_Array();
 
 

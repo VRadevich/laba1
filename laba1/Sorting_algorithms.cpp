@@ -6,6 +6,9 @@
 #include "Sorting_algorithms.h"
 
 
+Sorting_algorithms::Sorting_algorithms() {
+	Dialog_Loop();
+}
 
 void Sorting_algorithms::Dialog_Loop() {
 	while (true) {
@@ -16,6 +19,10 @@ void Sorting_algorithms::Dialog_Loop() {
 void Sorting_algorithms::Console_User_Dialog()
 {
 	// Выбор пользователем размера массива
+	if (Array_to_Sort != nullptr)
+	{
+		delete[] Array_to_Sort;
+	}
 	std::cout << "Hello!\nPlease, enter the array size from 2 to 1000: \n";		//
 	Array_Size = Valid_Input(2, 1000);
 	Array_to_Sort = new int[Array_Size];
@@ -70,6 +77,8 @@ void Sorting_algorithms::Console_User_Dialog()
 	Num_C = Num_M = 0;
 
 	delete[] Array_to_Sort;
+	Array_to_Sort = nullptr;
+
 }
 
 int Sorting_algorithms::Valid_Input(int min_range, int max_range)
@@ -154,7 +163,8 @@ void Sorting_algorithms::Selection_Sort()
 	}
 }
 
-void Sorting_algorithms::Shell_Sort(){
+void Sorting_algorithms::Shell_Sort()
+{
 	for (int step = Array_Size / 2; step > 0; step /= 2) {
 		for (int i = step; i < Array_Size; i++) {
 			Num_M++;
@@ -166,7 +176,8 @@ void Sorting_algorithms::Shell_Sort(){
 	}
 }
 
-void Sorting_algorithms::HeapSort(){
+void Sorting_algorithms::HeapSort()
+{
 	for (int i = 0; i < Array_Size; i++) {
 		for (int j = Array_Size / 2 - i / 2 - 1; j > -1; j--) {
 			Num_M++;
@@ -196,7 +207,8 @@ void Sorting_algorithms::HeapSort(){
 	}
 }
 
-int Sorting_algorithms::Control_Sum(){
+int Sorting_algorithms::Control_Sum()
+{
 	int sum = 0;
 	for (int i = 0; i < Array_Size; i++)
 		sum += Array_to_Sort[i];
@@ -206,9 +218,10 @@ int Sorting_algorithms::Control_Sum(){
 int Sorting_algorithms::Series()
 {
 	int num = 0;
-	for (int i = 1; i < Array_Size - 1; i++)
+	for (int i = 1; i < Array_Size; i++)
 		if (Array_to_Sort[i] < Array_to_Sort[i - 1])
 			num++;
+	
 	return num;
 }
 
@@ -235,6 +248,9 @@ void Sorting_algorithms::Print_Array()
 
 Sorting_algorithms::~Sorting_algorithms()
 {
-	delete[] Array_to_Sort; // Не обязательная реализация, но лишним не будет.
+	if (Array_to_Sort != nullptr)
+	{
+		delete[] Array_to_Sort;
+	}
 }
 
