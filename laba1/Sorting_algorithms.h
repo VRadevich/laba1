@@ -1,9 +1,11 @@
 #pragma once
+#ifndef SORT_ALG_H_
+#define SORT_ALG_H_
+
 class Sorting_algorithms // WARNING!! God Object!!
 {
 
 public:
-
 
 	// Конструткор класса
 	Sorting_algorithms() {
@@ -17,7 +19,7 @@ private:
 	
 	int Num_C = 0;  // Количество сравнений
 	int Num_M = 0;	// Количество пересылок
-	// Указатель на массив, который мы будем заполнять и сортировать.
+	// Массив, который мы будем заполнять и сортировать.
 	int* Array_to_Sort;
 
 	// Целочисленное на ввод, которое будет определять длинну массива
@@ -30,6 +32,11 @@ private:
 	// из которой вызвывются функции с алгоритмами по сортировке массива.
 	void Console_User_Dialog();
 		
+	// Функция для проверки ввода пользователя для значений
+	int Valid_Input(int, int);
+
+	// Функция по вызову функции по получаемому ключу
+	void Function_Call(const char[], int);
 
 	// Функция заполнения массива убывающей последовательностю
 	void Descreasing_Fillage_of_Array();
@@ -42,7 +49,6 @@ private:
 
 	// Функция для перемены мест двух элементов в массиве
 	void Swap_method(int, int);
-
 
 	// Функция сортировки выбором
 	void Selection_Sort();				
@@ -66,5 +72,8 @@ private:
 	// Вывод массива на экран в виде матрицы 10хN(
 	void Print_Array();
 
+
+
 };
 
+#endif /* SORT_ALG_H_*/
